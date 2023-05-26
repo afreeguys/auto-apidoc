@@ -7,6 +7,8 @@ auto-apidoc是一款自动生成接口文档的工具，只有一个可执行文
 所以有了auto-apidoc；
 auto-apidoc受到JApiDocs启发，使用go包装java解析程序，最终将接口文档生成为markdown格式，可以二次编辑；如果有感兴趣的朋友可以自行开发其他语言的解析器。markdown文档为json结构化数据渲染得来的，所以也可以对接口的格式化数据做更多的处理，比如同步文档服务平台系统等等。
 
+注意目前只在windows环境测试了，没有在mac环境下测试过。。。
+
 ## 使用说明
 自行编译或者使用main 路径下的autojapi.exe，以下示例内容内容均使用autojapi.exe
 1. 使用命令行在项目根目录下执行 `autojapi.exe`
