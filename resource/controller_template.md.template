@@ -1,0 +1,36 @@
+# {{.Title}}
+{{range .Methods}}{{block "requestMethod" .}}{{end}}{{end}}
+
+
+{{define "requestMethod"}}
+## {{.Title}}
+
+- 请求方式
+
+  {{.Type}}  {{.Url}}
+
+
+- 请求参数({{if .IsRequestBody }}requestBody{{else}}requestParam{{end}})
+{{with .ParamFields}}{{if gt (len .) 0}}
+| 参数名称 | 参数类型 | 参数说明 |
+| -------- | -------- | -------- |
+{{range .}}| {{.Name}}  | {{.Type}}   | {{.Description}} |
+{{end}}{{end}}{{else}}  暂无参数{{end}}
+{{if ne .ParamsJson  ""}}
+- 请求示例
+```json
+{{.ParamsJson}}
+```
+{{end}}
+
+- 返回结果
+
+| 参数名称 | 参数类型 | 参数说明 |
+| -------- | -------- | -------- |
+{{range .ResultFields}}| {{.Name}}  | {{.Type}}   | {{.Description}} |
+{{end}}
+
+```json
+{{.ResultJson}}
+```
+{{end}}
